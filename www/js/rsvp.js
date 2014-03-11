@@ -19,8 +19,13 @@ $('#rsvpForm').click(function(e){
 });
 
 rsvp.controller('rsvpCtrl', function($scope, $http) {
-  $http.defaults.useXDomain = true;
-  delete $http.defaults.headers.common['X-Requested-With'];
+  // $http.defaults.useXDomain = true;
+  // delete $http.defaults.headers.common['X-Requested-With'];
+
+  // Test the ajax api
+  $http.get('/api/test').then(function (response) {
+      console.log(response.data);
+  });
   
   //initilize rsvps
   $scope.rsvps = [];

@@ -5,17 +5,29 @@ echo Provisioning system...
 echo Installing prereq packages...
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y python-software-properties
-apt-get update
-apt-get install -y apache2 vim
+apt-get install -y python-software-properties vim
 
+# Nodejs
+wget http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+tar xzvf node-v0.10.26-linux-x64.tar.gz
+mv node-v0.10.26-linux-x64 /opt/node
+echo 'PATH="$PATH:/opt/node/bin"' > /etc/profile.d/nodepath.sh
+echo 'export PATH' >> /etc/profile.d/nodepath.sh
+source /etc/profile.d/nodepath.sh
+
+cd /vagrant
+/opt/node/bin/npm install
+
+chmod a+x /vagrant/webserver.sh
+ln -s /vagrant/webserver.sh /etc/init.d/webserver
+update-rc.d webserver defaults
+service webserver start
+
+# Mongo
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 sudo apt-get update
 sudo apt-get install mongodb-10gen
-
-rm -rf /var/www
-ln -fs /vagrant/www /var/www
 
 echo "The main site can be accessed through http://localhost:55555"
 echo "mongo db: http://localhost:27017  (28017 admin)"
