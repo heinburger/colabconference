@@ -29,6 +29,8 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 sudo apt-get update
 sudo apt-get install mongodb-10gen
 
+npm install mongojs
+
 echo "The main site can be accessed through http://localhost:55555"
 echo "mongo db: http://localhost:27017  (28017 admin)"
 

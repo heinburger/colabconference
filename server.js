@@ -8,8 +8,18 @@ app.configure(function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+
+
+
 app.get('/api/test', function (req, res) {
-    res.send({ msg: 'Hello World' });
+    
+    var mongojs = require('mongojs');
+	var db = mongojs('rsvpdb');
+
+	var steveTest = db;
+	
+	res.send({ msg: steveTest });
+    
 });
 
 app.listen(80);
