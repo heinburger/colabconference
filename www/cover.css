@@ -40,7 +40,7 @@ body {
 #background {
   border-radius: 60px;
   background-color: rgba(20,20,0,0.4);
-  padding:30px 10px;
+
 }
 #title {
   font-family: 'Monofett', cursive;
@@ -111,11 +111,38 @@ body {
   margin-bottom: 10px;
 }
 
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+
+.cover {
+
+}
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
 }
 
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
 
 
 /*
@@ -128,13 +155,17 @@ body {
     position: fixed;
     top: 0;
   }
-  
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
   /* Start the vertical centering */
   .site-wrapper-inner {
     vertical-align: middle;
   }
   /* Handle the widths */
   .masthead,
+  .mastfoot,
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
@@ -142,8 +173,8 @@ body {
 
 @media (min-width: 992px) {
   .masthead,
+  .mastfoot,
   .cover-container {
-    margin-top:50px;
     width: 700px;
   }
 }
