@@ -240,7 +240,9 @@
     <!-- custom stuff -->
     <script>
       $(function() {
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({
+          defaultDate: new Date(2014, 05, 21)
+        });
       });
     </script>
 
