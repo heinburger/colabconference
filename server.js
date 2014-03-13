@@ -1,3 +1,6 @@
+var mongojs = require('mongojs');
+var db = mongojs('mongodb://localhost:27017/rsvpdb', ['rsvpdb']);
+
 var express = require('express'),
     app = express();
 
@@ -8,18 +11,15 @@ app.configure(function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+app.get('/api/getRsvps', function (req, res) {
 
+	db.rsvpdb.find(function(err, docs) {
+		res.send( docs );
+	});
+});
 
-
-app.get('/api/test', function (req, res) {
-    
-    var mongojs = require('mongojs');
-	var db = mongojs('rsvpdb');
-
-	var steveTest = db;
-	
-	res.send({ msg: steveTest });
-    
+app.post('/api/saveRsvp', express.json(), function (req, res) {
+	db.rsvpdb.save(req.body);
 });
 
 app.listen(80);

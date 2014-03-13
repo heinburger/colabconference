@@ -135,9 +135,17 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="inputPresent" class="col-sm-3 control-label">presenting</label>
+                            <label for="inputPresent" class="col-sm-3 control-label">comment</label>
                             <div class="col-sm-9">
-                              <textarea type="text" class="form-control" id="inputPresent" placeholder="short description of your topic" ng-model="rsvpPresent"></textarea>
+                              <textarea type="text" class="form-control" id="inputPresent" placeholder="what do you think we could do to make a better future?" ng-model="rsvpPresent"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputDate" class="col-sm-3 control-label">arrival/departure date</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" ng-model="rsvpDate" id="inputDate" ng-options="l for l in [1,2,3,4,5,6]">
+                                <option value="choose"></option>
+                              </select>
                             </div>
                           </div>
 

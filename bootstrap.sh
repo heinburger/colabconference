@@ -29,7 +29,12 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 sudo apt-get update
 sudo apt-get install mongodb-10gen
 
-npm install mongojs
+#import
+#rsync -avh -e "ssh -p 4242 -i /vagrant/micha_server_key" hein@lor4x.no-ip.org:~/mongo_backup /vagrant/mongoimport/
+#mongoimport --db rsvpdb --collection rsvpdb --dbpath /vagrant/mongoimport/mongo_backup/rsvpdb
+
+#set up cron jobs
+#echo "* */1 * * * bash /vagrant/backup.sh" > /etc/cron.d/db_backup
 
 echo "The main site can be accessed through http://localhost:55555"
 echo "mongo db: http://localhost:27017  (28017 admin)"

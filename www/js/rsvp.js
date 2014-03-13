@@ -1,4 +1,5 @@
 var rsvp = angular.module('rsvp', []);
+var rsvpTotal = 0;
 
 function uniqueIdGen() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -22,22 +23,22 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
   // $http.defaults.useXDomain = true;
   // delete $http.defaults.headers.common['X-Requested-With'];
 
-  // Test the ajax api
-  $http.get('/api/test').then(function (response) {
-      console.log(response.data);
-  });
-  
+
+
+  $scope.rsvps=[];  
   //initilize rsvps
-  $scope.rsvps = [];
+  $http.get('/api/getRsvps').then(function (response) {
+    $scope.rsvps = response.data;
+    alert($scope.rsvps);
+    rsvpTotal = $scope.rsvps.length;
+    $scope.rsvpCount = rsvpTotal + 1; //=rsvpTotal plus a new one
+  });
 
   //set some defaults
   $scope.transportations = ["driving", "bus", "plane", "walk","getting a ride","bike"];
-  $scope.locations = ["Pittsburgh", "Boulder", "New York"]
+  $scope.locations = ["Pittsburgh", "Boulder", "New York"];
 
-  
-  //rsvpTotal = some function
-  $scope.rsvpCount = 0; //=rsvpTotal
-  
+
   //functions
   //--------------------------------------------------------
   $scope.addRsvp = function() {
@@ -60,14 +61,13 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
       location:$scope.rsvpLoc,
       edit:true
     };
+
+    $http.post('/api/saveRsvp', $scope.rsvps[$scope.rsvpCount]);
     
 
-     $scope.rsvpCount++;
-        
-  };
-  $scope.rsvpEdit = function() {
-    
-    //emailable?
+    $scope.rsvpCount++;
+
+
         
   };
 
