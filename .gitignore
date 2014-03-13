@@ -2,3 +2,4 @@ node_modules/
 .vagrant/
 micha_server_key.pub
 micha_server_key
+dump/
