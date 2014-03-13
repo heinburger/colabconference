@@ -28,7 +28,7 @@ html,
 body {
   height: 100%;
   background-color: #000;
-  background-image: url('../img/landsmall.JPG');
+  background-image: url('../img/landlarge.JPG');
   background-repeat: no-repeat;
   background-position: top;
   color: #fff;
@@ -39,9 +39,8 @@ body {
 
 #background {
   border-radius: 60px;
-  padding: 10px 30px;
   background-color: rgba(20,20,0,0.4);
-  margin:20px;
+  padding:30px;
 }
 #title {
   font-family: 'Monofett', cursive;
