@@ -1,5 +1,4 @@
 var rsvp = angular.module('rsvp', []);
-var rsvpTotal = 0;
 
 function uniqueIdGen() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -10,28 +9,13 @@ function uniqueIdGen() {
 
 $('#rsvpForm').click(function(e){
       e.preventDefault();
-      /*
-      $.post('http://path/to/post', 
-         $('#myForm').serialize(), 
-         function(data, status, xhr){
-           // do something here with response;
-         });
-      */
 });
 
 rsvp.controller('rsvpCtrl', function($scope, $http) {
-  // $http.defaults.useXDomain = true;
-  // delete $http.defaults.headers.common['X-Requested-With'];
-
-
-
   $scope.rsvps=[];  
   //initilize rsvps
   $http.get('/api/getRsvps').then(function (response) {
     $scope.rsvps = response.data;
-    alert($scope.rsvps);
-    rsvpTotal = $scope.rsvps.length;
-    $scope.rsvpCount = rsvpTotal + 1; //=rsvpTotal plus a new one
   });
 
   //set some defaults
@@ -43,33 +27,24 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
   //--------------------------------------------------------
   $scope.addRsvp = function() {
     var $uidd=uniqueIdGen();
-    var $temps=[];
       
     $scope.rsvps[$scope.rsvpCount] = {
       uid: $uidd,
-      id:$scope.rsvpCount,
-      _rev:'',
-      url:'',
       type:'rsvp', 
       name:$scope.rsvpName,
       email:$scope.rsvpEmail,
       description:$scope.rsvpDesc,
-      image: '',
-      temp: $temps,
-      editImage:false, 
-      active:true,
-      location:$scope.rsvpLoc,
+      location: $scope.rsvpLoc,
+      transportation: $scope.rsvpTrans,
+      capacity:$scope.rsvpTransRoom, 
+      food:$scope.rsvpDiet,
+      contribute:$scope.rsvpLoc,
+      comment:$scope.rsvpComment,
       edit:true
     };
 
-    $http.post('/api/saveRsvp', $scope.rsvps[$scope.rsvpCount]);
-    
-
-    $scope.rsvpCount++;
-
-
-        
+    $http.post('/api/saveRsvp', $scope.rsvps[$scope.rsvpCount]);       
+  
   };
-
 
 });

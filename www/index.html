@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
 
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css" rel="stylesheet">
+
     <!-- angularJS (manipulates some CSS..) -->
     <script type="text/javascript" src="js/angular.min.js"></script>
 
@@ -42,9 +44,7 @@
             <div class="inner">
               <h3 class="masthead-brand"></h3>
               <ul class="nav masthead-nav">
-                
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">More Info</a></li>
+              
               </ul>
             </div>
           </div>
@@ -110,7 +110,7 @@
                             <label for="inputTrans" class="col-sm-3 control-label">transportation</label>
                             <div class="col-sm-9">
                               <select class="form-control" ng-model="rsvpTrans" id="inputTrans" ng-options="t for t in transportations">
-                                <option value="choose"></option>
+                                <option selected value="choose"></option>
                               </select>
                             </div>
                           </div>
@@ -135,17 +135,15 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="inputPresent" class="col-sm-3 control-label">comment</label>
+                            <label for="inputComment" class="col-sm-3 control-label">comment</label>
                             <div class="col-sm-9">
-                              <textarea type="text" class="form-control" id="inputPresent" placeholder="what do you think we could do to make a better future?" ng-model="rsvpPresent"></textarea>
+                              <textarea type="text" class="form-control" id="inputComment" placeholder="what do you think we could do to make a better future?" ng-model="rsvpComment"></textarea>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="inputDate" class="col-sm-3 control-label">arrival/departure date</label>
+                            <label for="inputDate" class="col-sm-3 control-label">arrival</label>
                             <div class="col-sm-9">
-                              <select class="form-control" ng-model="rsvpDate" id="inputDate" ng-options="l for l in [1,2,3,4,5,6]">
-                                <option value="choose"></option>
-                              </select>
+                              <input id="datepicker" type="text" class="form-control" id="inputDate" placeholder="click to select date" ng-model="rsvpDate">
                             </div>
                           </div>
 
@@ -164,10 +162,12 @@
                 </div><!-- end Modal -->
 
 
-                <!-- link out to email -->
+                <!-- 
                 <a href="#" class="btn btn-lg btn-default">Tell a friend!</a>
                 &nbsp;
                 <a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#listModal">See who's coming...</a>
+
+                link out to email -->
 
 
                 <!-- listModal -->
@@ -233,8 +233,16 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/docs.min.js"></script>
     <script src="js/rsvp.js"></script>
+    <!-- custom stuff -->
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
+
   </body>
 </html>
