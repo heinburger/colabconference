@@ -134,9 +134,10 @@
                           </div>
                           <div class="form-group">
                             <label for="inputDate" class="col-sm-3 control-label">arrival</label>
-                            <div class="col-sm-9">
-                              <input id="datepicker" type="text" class="form-control" id="inputDate" placeholder="click to select date" ng-model="rsvpDate">
+                            
+                            <div class="col-sm-9" id="datepicker">
                             </div>
+                            <input name="arrivalDate" type="text" ng-model="rsvpDate" id="inputDate">
                           </div>
 
                         </form>
@@ -229,6 +230,7 @@
         $( "#datepicker" ).datepicker({
           defaultDate: new Date(2014, 05, 21)
         });
+        
       });
     </script>
 

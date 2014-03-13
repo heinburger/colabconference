@@ -40,6 +40,7 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
       food:$scope.rsvpDiet,
       contribute:$scope.rsvpLoc,
       comment:$scope.rsvpComment,
+      arrival:$scope.rsvpDate,
       edit:true
     };
 
