@@ -16,8 +16,6 @@
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
 
-    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css" rel="stylesheet">
-
     <!-- angularJS (manipulates some CSS..) -->
     <script type="text/javascript" src="js/angular.min.js"></script>
 
@@ -44,7 +42,7 @@
           <div class="inner cover" ng-controller="rsvpCtrl" id='background'>
             <h1 class="cover-heading" id="title">Colab Conference</h1>
             
-            <p class="gfont indentNOW">We are excited to announce <strong>CoLab’s 2014 Conference</strong> will be happening the weekend of <strong>June 21-22</strong>.  The purpose of this conference is to bring our different networks of intelligent, progressive-minded people together to talk about projects and ideas that relate to a better future.  During the weekend we hope to give people a chance to share ideas, come up with plans of action, and do some good old fashion manual labor.</p>  
+            <p class="gfont indentNOW">We are excited to announce <strong>CoLab’s 2014 Conference</strong> will be happening the weekend of <strong>June 21-22</strong><sup>1</sup>.  The purpose of this conference is to bring our different networks of intelligent, progressive-minded people together to talk about projects and ideas that relate to a better future.  During the weekend we hope to give people a chance to share ideas, come up with plans of action, and do some good old fashion manual labor.</p>  
 
             <p class="gfont indentNOW">The location of the conference is at our land - 656 Fairview School Lane, Gainesboro, TN.  In order to RSVP, click below and join our google group, after which we’ll contact you with further information.  If you have any questions feel free to get in touch with us at contactcolab@googlegroups.com</p>
 
@@ -55,158 +53,111 @@
                 <!-- Button trigger modal -->
                 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                   I want to come!
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-
-                    <!-- rsvpCtrl -->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modalTitle" id="myModalLabel">Tell us some stuff</h4>
-                      </div>
-
-                      <!-- form for submission -->
-                      <div class="modal-body">
-                        <form class="form-horizontal" role="form" id="rsvpForm">
-
-                          <div class="form-group">
-                            <label for="inputName" class="col-sm-3 control-label">name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="inputName" placeholder="First Last" ng-model="rsvpName">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputEmail" class="col-sm-3 control-label">email</label>
-                            <div class="col-sm-9">
-                              <input type="email" class="form-control" id="inputEmail" placeholder="p@u.me" ng-model="rsvpEmail">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputDesc" class="col-sm-3 control-label">description</label>
-                            <div class="col-sm-9">
-                              <textarea rows="5" class="form-control" id="inputDesc" placeholder="I think..." ng-model="rsvpDesc"></textarea>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputLoc" class="col-sm-3 control-label">location</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" ng-model="rsvpLoc" id="inputLoc" ng-options="l for l in locations">
-                                <option value="choose"></option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputTrans" class="col-sm-3 control-label">transportation</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" ng-model="rsvpTrans" id="inputTrans" ng-options="t for t in transportations">
-                                <option selected value="choose"></option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputTransRoom" class="col-sm-3 control-label">capacity</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" ng-model="rsvpTransRoom" id="inputTransRoom" ng-options="l for l in [1,2,3,4,5,6]">
-                                <option value="choose"></option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputDiet" class="col-sm-3 control-label">food</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="inputDiet" placeholder="any dietary concerns?" ng-model="rsvpDiet">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputMoney" class="col-sm-3 control-label">contribute</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="inputMoney" placeholder="amount you are willing to throw down" ng-model="rsvpMoney">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputComment" class="col-sm-3 control-label">comment</label>
-                            <div class="col-sm-9">
-                              <textarea type="text" class="form-control" id="inputComment" placeholder="what do you think we could do to make a better future?" ng-model="rsvpComment"></textarea>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputDate" class="col-sm-3 control-label">arrival</label>
-                            
-                            <div class="col-sm-9" id="datepicker">
-                            </div>
-                            <input name="arrivalDate" type="text" ng-model="rsvpDate" id="inputDate">
-                          </div>
-
-                        </form>
-                      </div>
-
-
-                      <!-- footer -->
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" ng-click="addRsvp()" type="submit" data-dismiss="modal">Submit RSVP</button>
-                      </div>
-                    </div> <!-- end modal content and rsvpCtrl -->
-
-
-                  </div>
-                </div><!-- end Modal -->
-
-
-                <!-- 
-                <a href="#" class="btn btn-lg btn-default">Tell a friend!</a>
-                &nbsp;
-                <a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#listModal">See who's coming...</a>
-
-                link out to email -->
-
-
-                <!-- listModal -->
-                <div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabelList" aria-hidden="true">
-                  <div class="modal-dialog">
-
-                    <!-- modal content -->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modalTitle" id="myModalLabelList">These people are probably coming...</h4>
-                      </div>
-
-                      <!-- list people -->
-                      <div class="modal-body">
-                       <ul class="unstyled" style="padding:0;">
-                          <li ng-repeat="rsvp in rsvps">
-                            <div ng-show="rsvp.active">
-                              <!-- DISPLAY RSVPS  -->
-                              <div class="media">
-                                
-                                <!-- rsvp name and location -->
-                                <div class="media-body">
-                                
-                                  <div class="alert alert-success media-heading">
-                                    <span class="lead"><a class="black" ng-click="rsvpEdit()">{{rsvp.name}}</a></span>
-                                    <div class="label pull-right black">{{rsvp.location}}</div>
-                                  </div>
-                                  
-                                </div> <!-- end media-body -->
-                              </div>
-                            </div>
-                          </li> <!-- ng-repeat -->
-                        </ul>
-
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                    </div> <!-- end modal content -->
-
-
-                  </div>
-                </div><!-- end listModal -->
-                
+                </button>       
             </p>
+
+            <div id='citations' class='margtop'>
+              <p class='gfont grey'>
+                <sup>1</sup> There will be a group of people down on the land a week before the conference (staying until a week after), so please join us anytime!
+              </p>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+
+                <!-- rsvpCtrl -->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modalTitle" id="myModalLabel">Tell us some stuff</h4>
+                  </div>
+
+                  <!-- form for submission -->
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="rsvpForm">
+
+                      <div class="form-group">
+                        <label for="inputName" class="col-sm-3 control-label">name</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="inputName" placeholder="First Last" ng-model="rsvpName">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputEmail" class="col-sm-3 control-label">email</label>
+                        <div class="col-sm-9">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="p@u.me" ng-model="rsvpEmail">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputDesc" class="col-sm-3 control-label">description</label>
+                        <div class="col-sm-9">
+                          <textarea rows="5" class="form-control" id="inputDesc" placeholder="I think..." ng-model="rsvpDesc"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputLoc" class="col-sm-3 control-label">location</label>
+                        <div class="col-sm-9">
+                          <select class="form-control" ng-model="rsvpLoc" id="inputLoc" ng-options="l for l in locations">
+                            <option value="choose"></option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputTrans" class="col-sm-3 control-label">transportation</label>
+                        <div class="col-sm-9">
+                          <select class="form-control" ng-model="rsvpTrans" id="inputTrans" ng-options="t for t in transportations">
+                            <option selected value="choose"></option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group" ng-show="driving()">
+                        <label for="inputTransRoom"class="col-sm-3 control-label">capacity</label>
+                        <div class="col-sm-9">
+                          <select class="form-control" ng-model="rsvpTransRoom" id="inputTransRoom" ng-options="l for l in [1,2,3,4,5,6]">
+                            <option value="choose"></option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputDiet" class="col-sm-3 control-label">food</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="inputDiet" placeholder="any dietary concerns?" ng-model="rsvpDiet">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputMoney" class="col-sm-3 control-label">contribute</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="inputMoney" placeholder="amount you are willing to throw down" ng-model="rsvpMoney">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputComment" class="col-sm-3 control-label">comment</label>
+                        <div class="col-sm-9">
+                          <textarea type="text" class="form-control" id="inputComment" placeholder="what do you think we could do to make a better future?" ng-model="rsvpComment"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputDate" class="col-sm-3 control-label">arrival</label>
+                        <div class="col-sm-9">
+                          <input name="arrivalDate" class="form-control" type="text" ng-model="rsvpDate" id="inputDate" placeholder="what day do you think you will come?">
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+
+
+                  <!-- footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="addRsvp()" type="submit" data-dismiss="modal">Submit RSVP</button>
+                  </div>
+
+                </div> <!-- end modal content and rsvpCtrl -->
+
+              </div>
+
+            </div><!-- end Modal -->
             
           </div>
 
@@ -220,19 +171,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/docs.min.js"></script>
     <script src="js/rsvp.js"></script>
-    <!-- custom stuff -->
-    <script>
-      $(function() {
-        $( "#datepicker" ).datepicker({
-          defaultDate: new Date(2014, 05, 21)
-        });
-        
-      });
-    </script>
 
   </body>
 </html>

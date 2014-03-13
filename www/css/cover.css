@@ -29,8 +29,8 @@ body {
   background-color: #000;
   background-image: url('../img/landmedium.JPG');
   background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
+  background-position: left top;
+  background-size: 1700px;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
@@ -40,7 +40,7 @@ body {
 #background {
   border-radius: 60px;
   background-color: rgba(20,20,0,0.4);
-  padding:30px 10px;
+  padding:30px;
 }
 #title {
   font-family: 'Monofett', cursive;
@@ -51,6 +51,9 @@ body {
 .gfont {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
+}
+.grey {
+  color:#999;
 }
 .indentNOW {
   text-indent: 30px;

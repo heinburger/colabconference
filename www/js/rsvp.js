@@ -12,11 +12,11 @@ $('#rsvpForm').click(function(e){
 });
 
 rsvp.controller('rsvpCtrl', function($scope, $http) {
-  $scope.rsvps=[];  
+  $scope.rsvp=[];  
   //initilize rsvps
-  $http.get('/api/getRsvps').then(function (response) {
-    $scope.rsvps = response.data;
-  });
+  //$http.get('/api/getRsvps').then(function (response) {
+    //$scope.rsvps = response.data;
+  //});
 
   //set some defaults
   $scope.transportations = ["driving", "bus", "plane", "walk","getting a ride","bike"];
@@ -28,7 +28,7 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
   $scope.addRsvp = function() {
     var $uidd=uniqueIdGen();
       
-    $scope.rsvps[$scope.rsvpCount] = {
+    $scope.rsvp = {
       uid: $uidd,
       type:'rsvp', 
       name:$scope.rsvpName,
@@ -44,8 +44,21 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
       edit:true
     };
 
-    $http.post('/api/saveRsvp', $scope.rsvps[$scope.rsvpCount]);       
+    $http.post('/api/saveRsvp', $scope.rsvp);       
   
-  };
+  }; //end addRsvp
 
-});
+  $scope.driving = function() {
+    if($scope.rsvpTrans == 'driving'){
+      return true;
+    } else {
+      return false;
+    }
+  
+  }; //end driving
+
+
+
+
+
+}); // end rsvpCtrl
