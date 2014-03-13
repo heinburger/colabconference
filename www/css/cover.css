@@ -26,12 +26,11 @@ a:hover {
 
 html,
 body {
-  height: 100%;
   background-color: #000;
   background-image: url('../img/landsmall.JPG');
   background-repeat: no-repeat;
   background-position: top;
-  background-size: 100%;}
+  background-size: cover;}
 body {
   color: #fff;
   text-align: center;
