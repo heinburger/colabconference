@@ -50,7 +50,7 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
       type:'rsvp', 
       name:$scope.rsvpName,
       email:$scope.rsvpEmail,
-      description:$scope.rsvpDesc,
+      interest:$scope.rsvpInterest,
       location: $scope.rsvpLoc,
       transportation: $scope.rsvpTrans,
       capacity:$scope.rsvpTransRoom, 
