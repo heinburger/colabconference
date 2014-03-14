@@ -42,11 +42,19 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
   //--------------------------------------------------------
   $scope.addRsvp = function() {
     var $uidd=uniqueIdGen();
+    var currentdate = new Date(); 
+    var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
 
     if ($scope.rsvpLoc == 'Other (add one)') { $scope.rsvpLoc = $scope.rsvpLocOther; }
       
     $scope.rsvp = {
       uid: $uidd,
+      posted: datetime,
       type:'rsvp', 
       name:$scope.rsvpName,
       email:$scope.rsvpEmail,
