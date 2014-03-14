@@ -33,7 +33,7 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
   }); //end getRsvps
 
   //set some defaults
-  $scope.transportations = ["driving", "bus", "plane", "walk","getting a ride","bike"];
+  $scope.transportations = ["driving", "bus", "plane", "walk","getting a ride","bike","hoping to find a ride", "unsure"];
   
   
 
