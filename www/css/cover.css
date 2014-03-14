@@ -96,8 +96,7 @@ body {
   vertical-align: top;
 }
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+  padding-top: 10px;
 }
 
 /* Padding for spacing */
@@ -126,27 +125,24 @@ body {
  */
 
 @media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
   
   /* Start the vertical centering */
   .site-wrapper-inner {
     vertical-align: middle;
   }
   /* Handle the widths */
-  .masthead,
   .cover-container {
+    margin-right: auto;
+    margin-left: auto;
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
 }
 
 @media (min-width: 992px) {
-  .masthead,
   .cover-container {
     margin-top:50px;
+    margin-right: auto;
+    margin-left: auto;
     width: 700px;
   }
 }

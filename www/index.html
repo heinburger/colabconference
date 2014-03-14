@@ -51,9 +51,12 @@
             
             <p class="lead">
                 <!-- Button trigger modal -->
-                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-hide="rsvpSent()">
                   I want to come!
-                </button>       
+                </button>
+                <button class="btn-lg" ng-show="rsvpSent()">
+                  RSVP Sent!
+                </button>           
             </p>
 
             <div id='citations' class='margtop'>
@@ -67,7 +70,7 @@
               <div class="modal-dialog">
 
                 <!-- rsvpCtrl -->
-                <div class="modal-content">
+                <div class="modal-content" ng-hide="rsvpSent()">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modalTitle" id="myModalLabel">Tell us some stuff</h4>
@@ -99,15 +102,21 @@
                         <label for="inputLoc" class="col-sm-3 control-label">location</label>
                         <div class="col-sm-9">
                           <select class="form-control" ng-model="rsvpLoc" id="inputLoc" ng-options="l for l in locations">
-                            <option value="choose"></option>
+                            <option></option>
                           </select>
+                        </div>
+                      </div>
+                      <div class="form-group" ng-show="newLocation()">
+                        <label for="inputLocOther" class="col-sm-3 control-label"><i>new</i></label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="inputLocOther" placeholder="enter location" ng-model="rsvpLocOther">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputTrans" class="col-sm-3 control-label">transportation</label>
                         <div class="col-sm-9">
                           <select class="form-control" ng-model="rsvpTrans" id="inputTrans" ng-options="t for t in transportations">
-                            <option selected value="choose"></option>
+                            <option></option>
                           </select>
                         </div>
                       </div>
@@ -115,7 +124,7 @@
                         <label for="inputTransRoom"class="col-sm-3 control-label">capacity</label>
                         <div class="col-sm-9">
                           <select class="form-control" ng-model="rsvpTransRoom" id="inputTransRoom" ng-options="l for l in [1,2,3,4,5,6]">
-                            <option value="choose"></option>
+                            <option></option>
                           </select>
                         </div>
                       </div>
