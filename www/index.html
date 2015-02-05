@@ -42,11 +42,13 @@
           <div class="inner cover" ng-controller="rsvpCtrl" id='background'>
             <h1 class="cover-heading" id="title">Colab Conference</h1>
             
-            <p class="gfont indentNOW">We are excited to announce <strong>CoLab’s 2014 Conference</strong> will be happening the weekend of <strong>June 21-22</strong><sup>1</sup>.  The purpose of this conference is to generate a public forum around what ideas and issues we all take to be important, and foment collaboration toward progressing them. During the weekend we hope to give people a chance to share ideas, come up with plans of action, and participate in a bit of manual labor.</p>
+            <p class="gfont indentNOW">We are excited to announce <strong>CoLab’s 2015 Conference</strong>.  Given the diverse interests of our collaborators, will be holding two meetings on back-to-back weekends.  The <strong>weekend of July 4, 2015</strong> will be dedicated to sharing ideas and doing workshops that are meant to stimulate future collaboration on projects (i.e., art pieces, software, sustainability, future of technology, grants, companies, et al).  The weekend of <strong>July 11, 2015</strong> will be dedicated to doing labor and planning efforts related solely toward <em>our shared land in Tennessee</em>.  We are continuing to hold this annual event in order to unite people with shared values and interests in hopes of solidifying a network that supports one another in the tangible and intellectual progression of these goals and values.  Plus getting cool people together is always fun!</p>
 
-            <p class="gfont indentNOW">The location of the conference is at our land - 656 Fairview School Lane, Gainesboro, TN.  In order to RSVP, please click below and enter your information.  Afterwards, we will contact you with follow up details.  If you have any questions feel free to get in touch with us at contactcolab@googlegroups.com</p>
+            <p class="gfont indentNOW">Many of us will be staying for both meetings and plan to do work and have fun during the week in between.  Feel free to stay throughout as there should be some great camping, building, jamming, and outdoor activity.</p>
 
-            <p class="gfont">Hope to see you in June!</p>
+            <p class="gfont indentNOW">The location of the conference is at our land - 656 Fairview School Lane, Gainesboro, TN.  In order to RSVP, please click below and enter your information.  Please RSVP by <strong>May 15, 2015</strong> so we have plenty of time to plan the weekends, answer questions, and help find transportation.  Afterwards, we will contact you with follow up details.  If you have any questions feel free to get in touch with us at contactcolab@googlegroups.com</p>
+
+            <p class="gfont">Hope to see you in July!</p>
             &nbsp;
             
             <p class="lead">
@@ -61,7 +63,7 @@
 
             <div id='citations' class='margtop'>
               <p class='gfont grey'>
-                <sup>1</sup> There will be a group of people down on the land a week before the conference (staying until a week after), so please join us anytime!
+                <sup>1</sup> There will be people there during the surrounding weeks of the conference so feel free to let us know if you have an interest in coming early or staying late to help out or hang out.
               </p>
             </div>
 
@@ -73,7 +75,7 @@
                 <div class="modal-content" ng-hide="rsvpSent()">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modalTitle" id="myModalLabel">Tell us some stuff</h4>
+                    <h4 class="modalTitle" id="myModalLabel">Tell us about yourself</h4>
                   </div>
 
                   <!-- form for submission -->
@@ -89,29 +91,34 @@
                       <div class="form-group">
                         <label for="inputEmail" class="col-sm-3 control-label">email</label>
                         <div class="col-sm-9">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="p@u.me" ng-model="rsvpEmail">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="preferred@contact.com" ng-model="rsvpEmail">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="inputInterest" class="col-sm-3 control-label">interest</label>
+                        <label for="inputWeekend" class="col-sm-3 control-label">weekend?</label>
                         <div class="col-sm-9">
-                          <textarea rows="5" class="form-control" id="inputInterest" placeholder="Tell us what makes you interested in coming..." ng-model="rsvpInterest"></textarea>
+                          <textarea rows="5" class="form-control" id="inputWeekend" placeholder="I'm coming [July 4 / July 11 / Both]" ng-model="rsvpWeekend"></textarea>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="inputLoc" class="col-sm-3 control-label">location</label>
+                        <label for="inputShare" class="col-sm-3 control-label">anything to share?</label>
                         <div class="col-sm-9">
-                          <select class="form-control" ng-model="rsvpLoc" id="inputLoc" ng-options="l for l in locations">
-                            <option></option>
-                          </select>
+                          <textarea rows="5" class="form-control" id="inputShare" placeholder="Will you come with an idea/workshop to share with the group?  If so, can you give us any details?" ng-model="rsvpShare"></textarea>
                         </div>
                       </div>
-                      <div class="form-group" ng-show="newLocation()">
-                        <label for="inputLocOther" class="col-sm-3 control-label"><i>new</i></label>
+                      <div class="form-group">
+                        <label for="inputInterest" class="col-sm-3 control-label">main interests</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="inputLocOther" placeholder="enter location" ng-model="rsvpLocOther">
+                          <textarea rows="5" class="form-control" id="inputInterest" placeholder="Are there any topics or interests that excite you the most about coming?" ng-model="rsvpInterest"></textarea>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label for="inputLocation" class="col-sm-3 control-label">where ya coming from?</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="inputLocation" placeholder="What city will you be traveling from?" ng-model="rsvpLocation">
+                        </div>
+                      </div>
+
                       <div class="form-group">
                         <label for="inputTrans" class="col-sm-3 control-label">transportation</label>
                         <div class="col-sm-9">
@@ -131,25 +138,31 @@
                       <div class="form-group">
                         <label for="inputDiet" class="col-sm-3 control-label">food</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="inputDiet" placeholder="any dietary concerns?" ng-model="rsvpDiet">
+                          <input type="text" class="form-control" id="inputDiet" placeholder="Any dietary restrictions?" ng-model="rsvpDiet">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputMoney" class="col-sm-3 control-label">contribute</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="inputMoney" placeholder="amount you would ike to contribute toward food and other necessities? $15? $30? etc." ng-model="rsvpMoney">
+                          <input type="text" class="form-control" id="inputMoney" placeholder="Possible for you to throw toward food/supplies?  How much?" ng-model="rsvpMoney">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputFriend" class="col-sm-3 control-label">any fellow travelers?</label>
+                        <div class="col-sm-9">
+                          <textarea type="text" class="form-control" id="inputFriend" placeholder="Any other people you are RSVP'ing for?  If so, who and how many?" ng-model="rsvpFriend"></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputComment" class="col-sm-3 control-label">comment</label>
                         <div class="col-sm-9">
-                          <textarea type="text" class="form-control" id="inputComment" placeholder="anything else you'd like to share with us?" ng-model="rsvpComment"></textarea>
+                          <textarea type="text" class="form-control" id="inputComment" placeholder="Any other information to share?" ng-model="rsvpComment"></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputDate" class="col-sm-3 control-label">arrival</label>
                         <div class="col-sm-9">
-                          <input name="arrivalDate" class="form-control" type="text" ng-model="rsvpDate" id="inputDate" placeholder="what day do you think you will come?">
+                          <input name="arrivalDate" class="form-control" type="text" ng-model="rsvpDate" id="inputDate" placeholder="What day do you plan to arrive?">
                         </div>
                       </div>
 

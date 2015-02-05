@@ -21,15 +21,15 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
   $http.get('/api/getRsvps').then(function (response) {
     $scope.rsvps = response.data;
     //grab new locations
-    $scope.locations = ["Please select", "Pittsburgh", "Boulder", "New York"];
-    for (var i=0; i < $scope.rsvps.length; i++) {
-      var loc = $scope.rsvps[i].location;
-      if (($.inArray(loc, $scope.locations) == -1) && (typeof loc !== 'undefined') && (loc !== 'Other (add one)')){
-        $scope.locations.push(loc);
-      }
-    } 
-    //put other at the end
-    $scope.locations.push("Other (add one)");
+    // $scope.locations = ["Please select", "Pittsburgh", "Boulder", "New York"];
+    // for (var i=0; i < $scope.rsvps.length; i++) {
+    //   var loc = $scope.rsvps[i].location;
+    //   if (($.inArray(loc, $scope.locations) == -1) && (typeof loc !== 'undefined') && (loc !== 'Other (add one)')){
+    //     $scope.locations.push(loc);
+    //   }
+    // } 
+    // //put other at the end
+    // $scope.locations.push("Other (add one)");
   }); //end getRsvps
 
   //set some defaults
@@ -50,7 +50,7 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
 
-    if ($scope.rsvpLoc == 'Other (add one)') { $scope.rsvpLoc = $scope.rsvpLocOther; }
+    //if ($scope.rsvpLoc == 'Other (add one)') { $scope.rsvpLoc = $scope.rsvpLocOther; }
       
     $scope.rsvp = {
       uid: $uidd,
@@ -58,12 +58,15 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
       type:'rsvp', 
       name:$scope.rsvpName,
       email:$scope.rsvpEmail,
+      share:$scope.rsvpShare,
+      weekend:$scope.rsvpWeekend,
       interest:$scope.rsvpInterest,
-      location: $scope.rsvpLoc,
+      location: $scope.rsvpLocation,
       transportation: $scope.rsvpTrans,
       capacity:$scope.rsvpTransRoom, 
       food:$scope.rsvpDiet,
       contribute:$scope.rsvpMoney,
+      friends:$scope.rsvpFriend,
       comment:$scope.rsvpComment,
       arrival:$scope.rsvpDate,
       edit:true
@@ -83,14 +86,14 @@ rsvp.controller('rsvpCtrl', function($scope, $http) {
   
   }; //end driving
 
-  $scope.newLocation = function() {
-    if($scope.rsvpLoc == 'Other (add one)'){
-      return true;
-    } else {
-      return false;
-    }
+  // $scope.newLocation = function() {
+  //   if($scope.rsvpLoc == 'Other (add one)'){
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
   
-  }; //end driving
+  // }; //end driving
 
   $scope.rsvpSent = function() {
     if(sent== true){
