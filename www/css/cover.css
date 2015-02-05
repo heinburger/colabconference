@@ -27,10 +27,10 @@ a:hover {
 html,
 body {
   background-color: #000;
-  background-image: url('../img/landmedium.JPG');
+  background-image: url('../img/land.JPG');
   background-repeat: no-repeat;
   background-position: left top;
-  background-size: 1700px;
+  background-size: 1900px;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
@@ -101,6 +101,8 @@ body {
 
 /* Padding for spacing */
 .inner {
+
+  margin-bottom:100px;
 
 }
 
